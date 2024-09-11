@@ -13,6 +13,15 @@ app.use(
   );
   app.use(express.json());
 
+
+//   initial server start
+app.get("/", (req, res) => {
+    res.status(200)
+    .json( {message: "server is running", 
+        app: "Byte Bazaar"
+    })
+})
+
   // handle error for unknown routes
 app.all("*", (req, res, next) => {
     res.status(404).json({
